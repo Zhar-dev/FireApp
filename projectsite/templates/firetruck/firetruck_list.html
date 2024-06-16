@@ -1,13 +1,10 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="content">
   <div class="page-inner">
-    <h4 class="page-title">List of Fire Truck</h4>
+    <h4 class="page-title">Fire Truck</h4>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header">
-            <div class="card-title">Subtitle</div>
-          </div>
           <br />
           <div class="col-md-12 row">
             <div class="col-md-6">
@@ -24,7 +21,7 @@
             </div>
             <div class="col-md-6">
               <div class="pull-right">
-                <a href="{% url 'firetruck-add' %}" class="btn btn-success btn-rounded">Add Fire Truck</a>
+                <a href="{% url 'firetruck-add' %}" class="btn btn-danger btn-square">Add Fire Truck</a>
               </div>
             </div>
           </div>

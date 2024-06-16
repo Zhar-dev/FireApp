@@ -7,13 +7,13 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">Delete Incident</div>
-                        <div class="card-category">{{ object.name }}</div>
+                        <div class="card-category">{{ object.location }}</div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="card-body">
                             <form class="" action="" method="post" novalidate>
-                                <P>Are you sure you want to delete "{{ object.name }}"?</P>
+                                <P>Are you sure you want to delete "{{ object.location }}"?</P>
                                 {% csrf_token %} {% include 'includes/form.html' %}
                                 
                                 <div class="form-group">
