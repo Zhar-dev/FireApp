@@ -1,19 +1,19 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="content">
   <div class="page-inner">
-    <h4 class="page-title">Fire Station</h4>
+    <h4 class="page-title">Incidents</h4>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <div class="card-title">List of Fire Station</div>
+            <div class="card-title">List of Incidents</div>
           </div>
           <br />
           <div class="col-md-12 row">
             <div class="col-md-6">
-              <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'firestation-list' %}">
+              <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'incident-list' %}">
                 <div class="input-group">
-                  <input type="text" placeholder="Search ..." class="form-control" name="q"/>
+                  <input type="text" placeholder="Search ..." class="form-control" name="q" />
                   <div class="input-group-append">
                     <span class="input-group-text">
                       <i class="la la-search search-icon"></i>
@@ -24,10 +24,7 @@
             </div>
             <div class="col-md-6">
               <div class="pull-right">
-                <a
-                  href="{% url 'firestation-add' %}"
-                  class="btn btn-success btn-rounded"
-                  >Add Fire Station</a>
+                <a href="{% url 'incident-add' %}" class="btn btn-success btn-rounded">Add Incident</a>
               </div>
             </div>
           </div>
@@ -35,32 +32,29 @@
             <table class="table table-striped mt-3">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Date Time</th>
+                  <th scope="col">Severity Level</th>
+                  <th scope="col">Description</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {% for object in object_list %}
                 <tr>
-                  <td>{{ object.name}}</td>
-                  <td>{{ object.address}}</td>
-                  <td>{{ object.city }}</td>
-                  <td>{{ object.country }}</td>
+                  <td>{{ object.location }}</td>
+                  <td>{{ object.date_time }}</td>
+                  <td>{{ object.severity_level }}</td>
+                  <td>{{ object.description }}</td>
                   <td>
-                    <a href="firestation_list/{{object.id}}">Edit</a>
-                    <a
-                      href="firestation_list/{{object.id}}/delete" class="text-danger">Delete</a>
+                    <a href="{% url 'incident-update' object.pk %}">Edit</a>
+                    <a href="{% url 'incident-delete' object.pk %}" class="text-danger">Delete</a>
                   </td>
                 </tr>
                 {% empty %}
                 <tr>
                   <td colspan="4" style="text-align: center">
-                    <p class="text-sm font-weight-bold mb-0">
-                      No Records Found
-                    </p>
+                    <p class="text-sm font-weight-bold mb-0">No Records Found</p>
                   </td>
                 </tr>
                 {% endfor %}
